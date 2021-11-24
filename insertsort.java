@@ -43,22 +43,24 @@ public class insertsort
     {
         int i=1;
         int temp=0;
+        int k=i;
         while(i<a.length)
         {
-            for(int k=0;k<i;k++)
+            k=i;
+            while(k>0)
             {
                 System.out.println(i);
-                if(a[k]>a[k+1])
+                if(a[k]<a[k-1])
                 {
-                    temp=a[k+1];
-                    a[k+1]=a[k];
+                    temp=a[k-1];
+                    a[k-1]=a[k];
                     a[k]=temp;
-                    System.out.println(a[k]+","+a[k+1]);
-                    k++;
+                    System.out.println(a[k]+","+a[k-1]);
+                    k--;
                 }
                 else
                 {
-                    k++;
+                    k--;
                 }
             }
             i++;
