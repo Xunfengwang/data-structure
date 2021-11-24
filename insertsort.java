@@ -49,13 +49,13 @@ public class insertsort
             k=i;
             while(k>0)
             {
-                System.out.println(i);
+                //System.out.println(i);
                 if(a[k]<a[k-1])
                 {
                     temp=a[k-1];
                     a[k-1]=a[k];
                     a[k]=temp;
-                    System.out.println(a[k]+","+a[k-1]);
+                    System.out.println(a[k]+","+a[k-1]+" "+"SWAP");
                     k--;
                 }
                 else
