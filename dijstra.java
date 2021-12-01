@@ -19,6 +19,12 @@ public class dijstra
     {
         int dist[]=new int[6];
         int path[]=new int[6];
+        int finalpath[]=new int[6];
+        finalpath[0]=0;
+        for(int j=1;j<finalpath.length;j++)
+        {
+            finalpath[j]=999;
+        }
         for(int j=1;j<dist.length;j++)
         {
             dist[0]=0;
@@ -43,6 +49,11 @@ public class dijstra
                             {
                                 dist[index]=min;
                                 System.out.println(i+" to"+" "+index+" "+"shortest distance"+" "+min);
+                                finalpath[index]=min;
+                                if(finalpath[k]<finalpath[k]+graphic[i][k])
+                                {
+                                    finalpath[k]=graphic[i][k]+finalpath[i];
+                                }
                             }
                         }
                     }
@@ -50,8 +61,19 @@ public class dijstra
                 index=0;
                 min=999;
         }
-        //print(dist);
-        //cal(dist);
+        /*for(int i=0;i<6;i++)
+        {
+            for(int k=0;k<6;k++)
+            {
+                if(finalpath[k]<finalpath[k]+graphic[i][k]&&graphic[i][k]!=999)
+                {
+                    finalpath[k]=graphic[i][k]+finalpath[i];
+                }
+            }
+        }*/
+        print(dist);
+        //print(sourcepoint);
+        print(finalpath);
     }
     public static void print(int[]dist)
     {
@@ -63,18 +85,8 @@ public class dijstra
         }
         System.out.println("");
     }
-    public static void cal(int[]dist)
+    public static void cal(int[]lastpoint,int[]dist)
     {
         int []arr=new int [dist.length];
-        for(int i=0;i<dist.length;i++)
-        {
-            System.out.print(dist[i]);
-            arr[i]=dist[i];
-            if(i>0)
-            {
-                arr[i]=arr[i-1]+dist[i];
-            }
-        }
-        print(arr);
     }
 }
