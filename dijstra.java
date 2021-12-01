@@ -36,15 +36,12 @@ public class dijstra
             int min=999;int index =0;
             for(int k=0;k<6;k++)
             {
-                //System.out.println(k);
                     if(graphic[i][k]!=0&&graphic[i][k]!=999)
                     {
                         if(graphic[i][k]<min)
                         {
-                            
                             index=k;
                             min=graphic[i][k];
-                            //System.out.print(k+","+min+" ");
                             if(min<dist[index])
                             {
                                 dist[index]=min;
@@ -54,25 +51,17 @@ public class dijstra
                                 {
                                     finalpath[k]=graphic[i][k]+finalpath[i];
                                 }
+                                //print(finalpath);
+                                
                             }
                         }
                     }
+                
             }
                 index=0;
                 min=999;
         }
-        /*for(int i=0;i<6;i++)
-        {
-            for(int k=0;k<6;k++)
-            {
-                if(finalpath[k]<finalpath[k]+graphic[i][k]&&graphic[i][k]!=999)
-                {
-                    finalpath[k]=graphic[i][k]+finalpath[i];
-                }
-            }
-        }*/
         print(dist);
-        //print(sourcepoint);
         print(finalpath);
     }
     public static void print(int[]dist)
