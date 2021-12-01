@@ -21,6 +21,9 @@ public class dijstra
         int path[]=new int[6];
         int finalpath[]=new int[6];
         finalpath[0]=0;
+        int test[]=new int[6];
+        test[0]=0;
+        test[1]=1;
         for(int j=1;j<finalpath.length;j++)
         {
             finalpath[j]=999;
@@ -50,18 +53,26 @@ public class dijstra
                                 if(finalpath[k]<finalpath[k]+graphic[i][k])
                                 {
                                     finalpath[k]=graphic[i][k]+finalpath[i];
+                                    path[k]=i;
                                 }
                                 //print(finalpath);
-                                
                             }
                         }
                     }
-                
             }
                 index=0;
                 min=999;
         }
-        print(dist);
+        for(int z=0;z<6;z++)
+        {
+            if(path[z]>0)
+            {
+                if(finalpath[z]>finalpath[path[z]]+dist[z])
+                {
+                    finalpath[z]=finalpath[path[z]]+dist[z];
+                }
+            }
+        }
         print(finalpath);
     }
     public static void print(int[]dist)
