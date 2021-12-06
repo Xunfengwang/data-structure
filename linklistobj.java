@@ -133,24 +133,26 @@ public class linklistobj
             {
                 if(tem==null&&tem1==null)
                 {
-                    System.out.println(current.next.data);
-                    System.out.println(current1.next.data);
                     tem=current.next;
                     tem1=current1.next;
                     current.next=current1;
                     prev=current1;
+                    System.out.println(current.data+","+current1.data);
                     current=tem;current1=tem1;
+                    
                 }
                 else
                 {
                     tem=current.next;
                     tem1=current1.next;
                     current.next=current1;
+                    prev.next=current;
                     prev=current1;
+                    System.out.println(current.data+","+current1.data);
                     current=tem;current1=tem1;
                 }
             }
-            if(current.next==null&&current1.next==null)
+            if(current.next==null&&current1.next==null&&current1.data!=0)
             {
                     prev.next=current;
                     current.next=current1;
