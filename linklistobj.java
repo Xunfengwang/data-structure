@@ -13,7 +13,7 @@ class node
 public class linklistobj
 {
     static Scanner key=new Scanner(System.in);
-    public static node ptr,current,prev,prev1,head,tem,tem1,head1,current1;
+    public static node ptr,current,prev,head,tem,tem1,head1,current1;
     
     public static void main(String []args)
     {
@@ -125,7 +125,6 @@ public class linklistobj
     }
     public static void cardShuffle(node head,node head1)
     {
-        int c=0;
         current=head;
         current1=head1;
         while(true)
@@ -140,7 +139,6 @@ public class linklistobj
                     tem1=current1.next;
                     current.next=current1;
                     prev=current1;
-                    c++;
                     current=tem;current1=tem1;
                 }
                 else
