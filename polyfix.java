@@ -138,19 +138,18 @@ public class polyfix {
         else{
             while(current.link!=null)
             {
-                current1=head1;
-            while(current1.link!=null)
+                while(current1.link!=null)
                 {
                     if(current2.exp==0&&current2.coef==0)
                     {
+                    System.out.println(current.coef+","+current.exp+","+current1.coef+","+current1.exp+"1");    
                     current2.exp=current1.exp*current.exp;
                     current2.coef=current1.coef*current.coef;
-                    System.out.println(current2.coef+","+current2.exp+" 2");
                     current1=current1.link;
-                    System.out.println(current1.coef+","+current1.exp+" test1");
                     }
                     else
                     {
+                        System.out.println(current.coef+","+current.exp+","+current1.coef+","+current1.exp+"2");
                     System.out.println(current1.coef+","+current1.exp+" test2");
                     ptr=new node();
                     ptr.exp=current1.exp*current.exp;
@@ -164,21 +163,34 @@ public class polyfix {
                     }
                     }
                 }
+                
+                System.out.println(current.coef+","+current.exp+","+current1.coef+","+current1.exp+"3");
                 ptr=new node();
                 ptr.exp=current1.exp*current.exp;
                 ptr.coef=current1.coef*current.coef;
                 ptr.link=current2.link;
-                System.out.println(ptr.coef+","+ptr.exp+" 4");
                 current2.link=ptr;
                 current=current.link;
+                current1=head1;
             }
+            System.out.println(current.coef+","+current.exp+","+current1.coef+","+current1.exp+"4");
             ptr=new node();
             ptr.exp=current1.exp*current.exp;
             ptr.coef=current1.coef*current.coef;
-            System.out.println(ptr.coef+","+ptr.exp+" 5");
             ptr.link=current2.link;
             current2.link=ptr;
-            //showlist(head2,3);
+            /*if(current1.link!=null)
+            {
+                
+            current1=current1.link;
+            System.out.println(current.coef+","+current.exp+","+current1.coef+","+current1.exp+"5");
+            ptr=new node();
+            ptr.exp=current1.exp*current.exp;
+            ptr.coef=current1.coef*current.coef;
+            ptr.link=current2.link;
+            current2.link=ptr;
+            }*/
+            showlist(head2,3);
         }
     }
 }
