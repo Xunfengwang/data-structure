@@ -104,6 +104,7 @@ public class polyfix {
             else if(a==3)
             {
                 current=head2;
+                a=a-10;
             }
         }
         if(current.exp==0&&current.coef==0)
@@ -127,40 +128,57 @@ public class polyfix {
         current2=head2;
         current=head;
         current1=head1;
-        while(current.link!=null)
+        if(current2.exp==0&&current2.coef==0&&current.link==null&&current1.link==null)//如果兩個多項式個只有一個節點
         {
-            while(current1.link!=null)
+            current2.exp=current1.exp*current.exp;
+            current2.coef=current1.coef*current.coef;
+            //System.out.println(current2.coef+","+current2.exp);
+            showlist(head2,3);
+        }
+        else{
+            while(current.link!=null)
             {
-                if(current2.exp==0&&current2.coef==0)
+                current1=head1;
+            while(current1.link!=null)
                 {
+                    if(current2.exp==0&&current2.coef==0)
+                    {
                     current2.exp=current1.exp*current.exp;
                     current2.coef=current1.coef*current.coef;
-                    System.out.println(current2.coef+","+current2.exp);
+                    System.out.println(current2.coef+","+current2.exp+" 2");
                     current1=current1.link;
-                }
-                else
-                {
+                    System.out.println(current1.coef+","+current1.exp+" test1");
+                    }
+                    else
+                    {
+                    System.out.println(current1.coef+","+current1.exp+" test2");
                     ptr=new node();
                     ptr.exp=current1.exp*current.exp;
                     ptr.coef=current1.coef*current.coef;
+                    System.out.println(ptr.coef+","+ptr.exp+" 3");
                     ptr.link=current2.link;
                     current2.link=ptr;
-                    current1=current1.link;
+                    if(current1.link!=null)
+                    {
+                        current1=current1.link;
+                    }
+                    }
                 }
+                ptr=new node();
+                ptr.exp=current1.exp*current.exp;
+                ptr.coef=current1.coef*current.coef;
+                ptr.link=current2.link;
+                System.out.println(ptr.coef+","+ptr.exp+" 4");
+                current2.link=ptr;
+                current=current.link;
             }
             ptr=new node();
             ptr.exp=current1.exp*current.exp;
             ptr.coef=current1.coef*current.coef;
+            System.out.println(ptr.coef+","+ptr.exp+" 5");
             ptr.link=current2.link;
             current2.link=ptr;
-            current1=head1;
-            current=current.link;
+            //showlist(head2,3);
         }
-        ptr=new node();
-        ptr.exp=current1.exp*current.exp;
-        ptr.coef=current1.coef*current.exp;
-        ptr.link=current2.link;
-        current2.link=ptr;
-        showlist(head2,3);
     }
 }
