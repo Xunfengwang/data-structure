@@ -18,7 +18,7 @@ public class polyfix {
         head2=new node();tail2=new node();head2.link=tail2; tail2.link=null;
         while(true)
         {
-            System.out.println("1 for insert list one end,2 for insert list two end,3 show,4 show2,5 combine");
+            System.out.println("1 for insert list one end,2 for insert list two end,3 show,5 combine");
             int num=key.nextInt();
             if(num==1)
             {
