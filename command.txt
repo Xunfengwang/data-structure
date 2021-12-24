@@ -4,3 +4,8 @@ git push
 
 git pull
 git push
+
+SWITCH branch
+
+git branch//search
+git checkout +branchname
