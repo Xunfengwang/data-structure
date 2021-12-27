@@ -3,26 +3,25 @@ import java.util.Scanner;
 public class hanoi
 {
     static Scanner key=new Scanner(System.in);
+    static int count=0;
     public static void main(String []args)
     {
         System.out.println("input the num of plate:");
         int num=key.nextInt();
-        int count=0;
-        function(1,2,3,num,count);
+       // int count=0;
+        function('a','b','c',num);
     }
-    public static void function(int a,int b,int c,int num,int count)
+    public static void function(char from,char pass,char to,int num)
     {
-        if(num==1)
+        if(num==0)
         {
-            System.out.println(num+" plate move from "+a+" to "+c);
+            return;
+        }
+        
+            function(from,to,pass,num-1);
             count++;
-        }
-        else
-        {
-            function(1,3,2,num-1,count);
-            function(1,2,3,1,count);
-            function(2,1,3,num-1,count);
-            
-        }
+            System.out.println(count+" "+num+" move from "+from+" to "+ to);
+            function(pass,from,to,num-1);
+    
     }
 }
