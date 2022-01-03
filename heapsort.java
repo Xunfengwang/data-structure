@@ -33,7 +33,6 @@ public class heapsort
             }
             a[k]=a[large];
             k=large;
-            print(a);
         }
         a[k]=temp;
         print(a);
