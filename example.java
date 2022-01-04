@@ -1,9 +1,14 @@
 
+
+// interface HaveCall{
+//     public void Call();
+// }
 class Father {
     public String name;
     public int age;
     private int addAge = 3;
 
+    // 加上 final 就不能覆寫
     public int calc() {
         return this.age + addAge;
     }
@@ -16,7 +21,13 @@ class Test1 extends Father {
         System.out.println("run....");
     }
 
-    void call()// 橫向找，遇到1往下找
+    // 覆寫父類別的方法
+    @Override
+    public int calc(){
+        return 3;
+    }
+    
+    void call()
     {
         int ans = this.calc();
         System.out.println(ans);
@@ -53,7 +64,7 @@ public class example {
 
         ShowName();
         System.out.println("-------------");
-        
+
         Test3 test3 = new Test3();
         System.out.println("Right: "+test3.Right);
         System.out.println("Left: "+test3.Left);
