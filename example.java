@@ -26,19 +26,42 @@ class Test1 extends Father {
 class Test2 extends Father {
 }
 
+class Test3 {
+    public static int Right = 1;
+    public int Left = 1;
 
-//主class
+    public Test3() {
+        System.out.println("run test3");
+        Right++;
+        Left++;
+    }
+
+}
+
+// 主class
 public class example {
 
     public static String DisplayName = "test";
 
-    public static void ShowName(){
+    public static void ShowName() {
         System.out.println(DisplayName);
     }
+
     public static void main(String[] args) {
         Test1 bbb1 = new Test1("sam", 25);
         bbb1.call();
 
         ShowName();
+        System.out.println("-------------");
+        
+        Test3 test3 = new Test3();
+        System.out.println("Right: "+test3.Right);
+        System.out.println("Left: "+test3.Left);
+        System.out.println("-------------");
+        Test3 test2 = new Test3();
+        System.out.println("Right: "+test2.Right);
+        System.out.println("Left: "+test2.Left);
+
+        System.out.println(Test3.Right); //Test3.Left不能使用
     }
 }
