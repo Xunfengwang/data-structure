@@ -29,8 +29,16 @@ class Test2 extends Father {
 
 //主class
 public class example {
+
+    public static String DisplayName = "test";
+
+    public static void ShowName(){
+        System.out.println(DisplayName);
+    }
     public static void main(String[] args) {
         Test1 bbb1 = new Test1("sam", 25);
         bbb1.call();
+
+        ShowName();
     }
 }
