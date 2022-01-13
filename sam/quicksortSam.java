@@ -1,4 +1,4 @@
-package sam;
+// package sam;
 
 import java.util.Scanner;
 import java.util.Arrays;
