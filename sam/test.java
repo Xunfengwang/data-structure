@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
 class LinkedQueue<T>{
+    public queueNode current,head,tail,ptr;
     private int count;
-    
+    public Scanner key=new Scanner(System.in);
     public int getCount(){ 
         return 0; 
     };
@@ -12,6 +13,34 @@ class LinkedQueue<T>{
     }
 
     public void enqueue(T element){
+        /*
+        **假設從head開始找到tail，將新的node塞在tail後面
+        */
+        current=head;
+        while(current!=tail)
+        {
+            current=current.getNextNode();
+        }//直到替換到tail
+        ptr=new queueNode<T>();
+        ptr.setValue(key.nextInt());
+        ptr.setPreNode(current);
+        ptr.setNextNode(null);
+        current.setNextNode(ptr);
+        ptr=tail;
+
+        /*
+        current=head;
+        while(current!=tail)
+        {
+            current=current.nextNode();
+        }
+        ptr=new node();
+        ptr.data=key.nextInt();
+        ptr.preNode=current;
+        ptr.nextNode=null;
+        current.nextNode=ptr;
+        ptr=tail;
+        */
 
     }
 
