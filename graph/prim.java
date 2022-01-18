@@ -63,15 +63,21 @@ public class prim
             
          }
      }
+     System.out.println("from vertex:");
      print(from);
+     System.out.println("to vertex:");
      print(to);
+     System.out.println("the cost");
      print(recoard);
  }   
  public static void print(int []arr)
  {
      for(int i=0;i<arr.length;i++)
      {
-         System.out.print(arr[i]+ " ");
+         if(arr[i]!=999)
+         {
+            System.out.print(arr[i]+ " ");
+         }
      }
      System.out.println(" ");
  }
