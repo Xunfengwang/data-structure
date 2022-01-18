@@ -1,3 +1,5 @@
+package graph;
+
 import java.util.*;
 public class prim
 {
@@ -22,32 +24,47 @@ public class prim
      {
          int min=999;
          int temp=0;
+         int flag=0;
+         int idx=0;
          for(int k=0;k<graph[0].length;k++)
          {
-             /*if(recoard[i]==999)
-             {
-                recoard[i]=graph[i][k];
-             }*/
-
              if(k!=0&&graph[i][k]<min&&i!=k&&graph[i][k]!=0&&visited[k]!=true)
              {
-                temp=k;
+                if(i<k)
+                {
+                    temp=k;
+                    min=graph[i][k];
+                }
+             }
+             else if(k!=0&&graph[i][k]<min&&i!=k&&graph[i][k]!=0&&visited[i]!=true&&i>k)
+             {
+                temp=i;
                 min=graph[i][k];
-                //System.out.println(k+" "+min);
+                flag=1;
+                idx=k;
              }
          }
          if(min!=999&&visited[temp]!=true)
          {
-            recoard[temp]=min;
-            from[temp]=i;
-            to[i]=temp;
-            //System.out.println(temp+" from "+from[temp]+" the recoard "+recoard[temp]);
-            visited[temp]=true;
-            //System.out.println(visited[temp]);
+             if(flag==0)
+             {
+                recoard[temp]=min;
+                from[temp]=i;
+                to[i]=temp;
+                visited[temp]=true;
+             }
+             else
+             {
+                recoard[temp]=min;
+                from[temp]=idx;
+                to[idx]=temp;
+                visited[temp]=true;
+             }
+            
          }
      }
-     //print(from);
-     //print(to);
+     print(from);
+     print(to);
      print(recoard);
  }   
  public static void print(int []arr)
