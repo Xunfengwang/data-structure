@@ -1,3 +1,4 @@
+package sort;
 import static java.lang.System.out;
 import java.util.Scanner;
 public class bubblesort
@@ -41,8 +42,8 @@ public class bubblesort
     }
     public static void bubbsort(int [] a)
     {
-        int e=0;int i=0;int temp=0;
-        while(e<a.length)
+        int e=a.length-1;int i=0;int temp=0;
+        while(e>-1)
         {
             i=0;
             while(i<a.length-1)
@@ -61,7 +62,7 @@ public class bubblesort
                 }
             }
             printarr(a);
-            e++;
+            e--;
         }
         printarr(a);
     }
